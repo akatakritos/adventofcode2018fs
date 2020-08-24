@@ -8,15 +8,23 @@ let input s =
 let splitLines (s: string) =
     s.Split('\n')
 
+let puzzleDay (argv: string array) =
+    if argv.Length >= 1 then
+        Some argv.[0]
+    else
+        None
+
 [<EntryPoint>]
 let main argv =
-    let day = argv.[0]
+    let day = puzzleDay argv
 
     match day with
-        | "1" ->
-            input "puzzle01.txt"
-            |> Puzzle01.execute
-        | _ -> printfn "havent done that day yet."
+        | Some "1" ->
+            input "puzzle01.txt" |> Puzzle01.execute
+        | Some "2" ->
+            input "puzzle02.txt" |> Puzzle02.execute
+        | Some _ -> printfn "havent done that day yet."
+        | None -> printfn "Pass day number 'dotnet run -- 2'"
 
     0
 
