@@ -23,6 +23,7 @@ let main argv =
             input "puzzle01.txt" |> Puzzle01.execute
         | Some "2" ->
             input "puzzle02.txt" |> Puzzle02.execute
+        | Some "3" -> input "puzzle03.txt" |> Puzzle03.execute
         | Some _ -> printfn "havent done that day yet."
         | None -> printfn "Pass day number 'dotnet run -- 2'"
 
